@@ -1,3 +1,8 @@
+<style>
+    a.noLinkDecoration {
+        text-decoration: none; 
+    }
+</style>
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -12,8 +17,14 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                    <x-jet-nav-link href="{{ route('home') }}" class="noLinkDecoration" :active="request()->routeIs('home')">
+                        {{ __('Home') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('dashboard') }}" class="noLinkDecoration" :active="request()->routeIs('dashboard')">
+                        {{ __('Blog') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('dashboard') }}" class="noLinkDecoration" :active="request()->routeIs('dashboard')">
+                        {{ __('Contato') }}
                     </x-jet-nav-link>
                 </div>
             </div>
@@ -39,17 +50,17 @@
                                 <div class="w-60">
                                     <!-- Team Management -->
                                     <div class="block px-4 py-2 text-xs text-gray-400">
-                                        {{ __('Manage Team') }}
+                                        {{ __('Configurar seu Time') }}
                                     </div>
 
                                     <!-- Team Settings -->
                                     <x-jet-dropdown-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
-                                        {{ __('Team Settings') }}
+                                        {{ __('Configuração do Time') }}
                                     </x-jet-dropdown-link>
 
                                     @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
                                         <x-jet-dropdown-link href="{{ route('teams.create') }}">
-                                            {{ __('Create New Team') }}
+                                            {{ __('Criar um novo Time') }}
                                         </x-jet-dropdown-link>
                                     @endcan
 
@@ -57,7 +68,7 @@
 
                                     <!-- Team Switcher -->
                                     <div class="block px-4 py-2 text-xs text-gray-400">
-                                        {{ __('Switch Teams') }}
+                                        {{ __('Trocar de Time') }}
                                     </div>
 
                                     @foreach (Auth::user()->allTeams() as $team)
@@ -93,11 +104,12 @@
                         <x-slot name="content">
                             <!-- Account Management -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Manage Account') }}
+                                {{ __('Gerencie sua conta') }}
                             </div>
 
-                            <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                                {{ __('Profile') }}
+                            <x-jet-dropdown-link href="{{ route('profile.show') }}" class="noLinkDecoration">
+                                <i class="text-xl fas fa-user"></i>
+                                {{ __('Perfil') }}
                             </x-jet-dropdown-link>
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -114,8 +126,9 @@
 
                                 <x-jet-dropdown-link href="{{ route('logout') }}"
                                          onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                    {{ __('Log Out') }}
+                                                this.closest('form').submit();" class="noLinkDecoration">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    {{ __('Sair') }}
                                 </x-jet-dropdown-link>
                             </form>
                         </x-slot>
@@ -138,8 +151,14 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+            <x-jet-responsive-nav-link href="{{ route('home') }}" class="noLinkDecoration" :active="request()->routeIs('home')">
+                {{ __('Home') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('dashboard') }}" class="noLinkDecoration" :active="request()->routeIs('dashboard')">
+                {{ __('Blog') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('dashboard') }}" class="noLinkDecoration" :active="request()->routeIs('dashboard')">
+                {{ __('Contato') }}
             </x-jet-responsive-nav-link>
         </div>
 
