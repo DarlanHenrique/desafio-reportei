@@ -12,26 +12,31 @@
     "devDependencies": {
         "@tailwindcss/forms": "^0.3.1",
         "@tailwindcss/typography": "^0.4.0",
-        "alpinejs": "^3.0.6",
+        "alpinejs": "^3.2.3",
+        "autoprefixer": "^10.3.1",
         "axios": "^0.21",
         "bootstrap": "^4.6.0",
-        "jquery": "^3.2",
+        "jquery": "^3.6",
         "laravel-mix": "^6.0.6",
         "livewire-sortable": "^0.2.2",
         "lodash": "^4.17.19",
-        "popper.js": "^1.12",
-        "postcss": "^8.1.14",
+        "popper.js": "^1.16",
+        "postcss": "^8.3.6",
         "postcss-import": "^14.0.1",
-        "sass": "^1.20.1",
+        "resolve-url-loader": "^4.0.0",
+        "sass": "^1.32.11",
         "sass-loader": "^11.0.1",
-        "tailwindcss": "^2.2.2"
+        "tailwindcss": "^2.2.7"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "^5.15.3",
-        "admin-lte": "^3.1.0",
+        "@fancyapps/ui": "^4.0.0-beta.0",
+        "@fortawesome/fontawesome-free": "^5.15.4",
         "datatables.net": "^1.10.24",
         "datatables.net-dt": "^1.10.24",
+        "inputmask": "^5.0.5",
+        "jquery-mask-plugin": "^1.14.16",
+        "summernote": "^0.8.18",
         "sweetalert": "^2.1.2",
-        "tailwindcss": "^2.2.7"
+        "sweetalert2": "^9.17.2"
     }
 }

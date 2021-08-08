@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
+use App\Models\BlogCategory;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,15 +14,27 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Main Page
+Route::get('home', 'SiteController@home')->name('home');
+Route::get('/', 'SiteController@home')->name('home');
 
-Route::get('/', function () {
-    return view('welcome');
+// Contact Post
+Route::post('/contato', [App\Http\Controllers\ContactController::class, 'storeContactForm'])->name('contact-form.store');
+
+// Blog
+Route::get('blog', 'SiteController@blog')->name('blog');
+Route::prefix('blog')->group(function () {
+    Route::get('/pesquisa', 'SiteController@blogsearch')->name('blogsearch');
+    Route::get('/mes/{month}', 'SiteController@blogmonth')->name('blogmonth');
+    Route::get('/categoria/{blogcategory}/{slug?}', 'SiteController@blogcategory')->name('blogcategory');
+    Route::get('/{post}/{slug?}', 'SiteController@blogpost')->name('blogpost');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+// Administrative Routes
+Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
+    Route::resource('/blogCategories', 'BlogCategoryController');
+    Route::resource('/posts', 'PostController');
+    Route::resource('/contacts', 'ContactController');
+    Route::resource('/galeries', 'GaleryController');
 
-Route::get('home', 'SiteController@home')->name('home');
-
-
+});
