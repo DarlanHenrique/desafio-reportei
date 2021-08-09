@@ -1,23 +1,23 @@
 @if ($body != '' || !($createFirst ?? true))
 <div class="card">
     @if (isset($create) || isset($titulo))
-    <div class="card-header card-outline cor-backend">
-        <h3 class="float-left m-0 table-title">{{ $titulo ?? null }}</h3>
-        @if (isset($create))
-            @if(Route::is('contacts.index'))
-            @else
-                <div class="float-right mr-2">
-                    <div class="input-group input-group-sm">
-                        <a href="{{ $create }}">
-                            <button type="button" class="btn btn-dark icone-add-table">
-                                <b><i class="fas fa-plus-circle "></i> Adicionar</b>
-                            </button>
-                        </a>
+        <div class="card-header card-outline cor-backend">
+            <h3 class="float-left m-0 table-title">{{ $titulo ?? null }}</h3>
+            @if (isset($create))
+                @if(Route::is('contacts.index'))
+                @else
+                    <div class="float-right mr-2">
+                        <div class="input-group input-group-sm">
+                            <a href="{{ $create }}">
+                                <button type="button" class="btn btn-dark icone-add-table">
+                                    <b><i class="fas fa-plus-circle "></i> Adicionar</b>
+                                </button>
+                            </a>
+                        </div>
                     </div>
-                </div>
+                @endif
             @endif
-        @endif
-    </div>
+        </div>
     @endif
 
     <div class="card-body table-responsive">

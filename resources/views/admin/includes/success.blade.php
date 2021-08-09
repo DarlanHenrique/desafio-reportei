@@ -2,12 +2,13 @@
     @push('scripts')
         <script>
             Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Your work has been saved',
-            showConfirmButton: false,
-            timer: 1500
+                position: 'center',
+                icon: 'success',
+                title: 'Operação concluída com sucesso!',
+                showConfirmButton: true,
+                timer: 3000
             })
         </script>
     @endpush
 @endif
+

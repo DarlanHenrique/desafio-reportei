@@ -17,6 +17,7 @@ use App\Models\BlogCategory;
 // Main Page
 Route::get('home', 'SiteController@home')->name('home');
 Route::get('/', 'SiteController@home')->name('home');
+Route::get('/sortable', [App\Http\Livewire\Tasks::class, 'render'])->name('sortable');
 
 // Contact Post
 Route::post('/contato', [App\Http\Controllers\ContactController::class, 'storeContactForm'])->name('contact-form.store');

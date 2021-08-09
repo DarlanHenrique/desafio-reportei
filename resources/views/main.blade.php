@@ -1,16 +1,26 @@
 <x-app-layout>
-    <x-slot name="header">
-        @include('site.includes.header')
-    </x-slot>
+    <div @if(Auth::check()) drag-root @endif>
+        <x-slot name="header">
+            @include('site.includes.header')
+        </x-slot>
 
-    <div class="container">
-        @include('site.blog.index')
-        @include('site.galery.index')
-        @include('site.contact.contactForm')
-        @include('site.menu.index')
+        <div class="container">
+            <div @if(Auth::check()) drag-item draggable="true" @endif >
+                @include('site.blog.index')
+            </div>
+            <div @if(Auth::check()) drag-item draggable="true" @endif >
+                @include('site.galery.index')
+            </div>
+            <div @if(Auth::check()) drag-item draggable="true" @endif >
+                @include('site.contact.contactForm')
+            </div>
+            <div @if(Auth::check()) drag-item draggable="true" @endif >
+                @include('site.menu.index')
+            </div>
+        </div>
+
+        <x-slot name="footer">
+            @include('site.includes.footer')
+        </x-slot>
     </div>
-
-    <x-slot name="footer">
-        @include('site.includes.footer')
-    </x-slot>
 </x-app-layout>

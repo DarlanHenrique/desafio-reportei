@@ -64,6 +64,34 @@
         @stack('scripts')
 
         @livewireScripts
+        <script src="https://cdn.jsdelivr.net/gh/livewire/sortable@v0.x.x/dist/livewire-sortable.js"></script>
+        <script>
+            let root = document.querySelector('[drag-root]')
 
+            root.querySelectorAll('[drag-item]').forEach(el =>{
+                el.addEventListener('dragstart', e => {
+                    e.target.setAttribute('dragging', true)
+                })
+                el.addEventListener('dragend', e => {
+                    e.target.removeAttribute('dragging')
+                })
+                el.addEventListener('dragenter', e => {
+                    e.target.classList.add('bg-danger')
+                    e.preventDefault()
+                })
+                el.addEventListener('dragover', e => {
+                    e.preventDefault()
+                })
+                el.addEventListener('dragleave', e => {
+                    e.target.classList.remove('bg-danger')
+                    console.log('leave')
+                })
+                el.addEventListener('drop', e => {
+                    e.target.classList.remove('bg-danger')
+                    let draggingEl = root.querySelector('[dragging]')
+                    e.target.before(draggingEl)
+                })
+            })
+        </script>
     </body>
 </html>

@@ -26,17 +26,18 @@
         "resolve-url-loader": "^4.0.0",
         "sass": "^1.32.11",
         "sass-loader": "^11.0.1",
+        "sweetalert2": "^9.17.2",
         "tailwindcss": "^2.2.7"
     },
     "dependencies": {
         "@fancyapps/ui": "^4.0.0-beta.0",
         "@fortawesome/fontawesome-free": "^5.15.4",
         "datatables.net": "^1.10.24",
+        "datatables.net-buttons-bs4": "^1.7.1",
         "datatables.net-dt": "^1.10.24",
         "inputmask": "^5.0.5",
         "jquery-mask-plugin": "^1.14.16",
         "summernote": "^0.8.18",
-        "sweetalert": "^2.1.2",
-        "sweetalert2": "^9.17.2"
+        "sweetalert": "^2.1.2"
     }
 }

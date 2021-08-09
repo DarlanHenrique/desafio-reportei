@@ -26,11 +26,8 @@
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
-
-//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css
     </head>
-    <style>
-    </style>
+
     <body class="font-sans antialiased">
         <x-jet-banner />
 
